@@ -277,7 +277,7 @@ body{font-family:var(--fb);background:var(--bg);color:var(--text);min-height:100
     <div class="pw-tagline">AI-powered ATS CV builder — land more interviews</div>
 
     <!-- ✏️ Change price display here -->
-    <div class="pw-price">14.99 EGP</div>
+    <div class="pw-price">99.99 EGP</div>
     <div class="pw-price-note">One-time payment · Lifetime access · No subscription</div>
 
     <!-- ✏️ Edit features list here -->
@@ -675,18 +675,13 @@ async function runAI(){
   result.classList.remove('show');
   document.getElementById('btn-apply').classList.remove('show');
   try{
-    const res=await fetch('https://api.anthropic.com/v1/messages',{
+    const res=await fetch('/ai-write',{
       method:'POST',
       headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({
-        model:'claude-sonnet-4-20250514',
-        max_tokens:800,
-        system:AI_SYSTEM,
-        messages:[{role:'user',content:prompt}]
-      })
+      body:JSON.stringify({ prompt })
     });
     const data=await res.json();
-    const text=data.content?.[0]?.text||'';
+    const text=data.result||'';
     if(text){
       result.textContent=text;result.classList.add('show');
       document.getElementById('btn-apply').classList.add('show');
