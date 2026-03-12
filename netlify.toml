@@ -1,0 +1,23 @@
+[build]
+  publish = "."
+  functions = "netlify/functions"
+
+[[redirects]]
+  from = "/create-payment"
+  to = "/.netlify/functions/create-payment"
+  status = 200
+
+[[redirects]]
+  from = "/verify-payment"
+  to = "/.netlify/functions/verify-payment"
+  status = 200
+
+[[redirects]]
+  from = "/paymob-webhook"
+  to = "/.netlify/functions/paymob-webhook"
+  status = 200
+
+[[redirects]]
+  from = "/payment-callback"
+  to = "/index.html"
+  status = 200
