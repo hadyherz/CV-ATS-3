@@ -16,6 +16,11 @@
   from = "/paymob-webhook"
   to = "/.netlify/functions/paymob-webhook"
   status = 200
+  
+[[redirects]]
+  from = "/ai-write"
+  to = "/.netlify/functions/ai-write"
+  status = 200
 
 [[redirects]]
   from = "/payment-callback"
